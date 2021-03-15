@@ -1,0 +1,101 @@
+
+ <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head> 
+
+<div class="container">
+  <form class="form-group"  [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="main col-sm-6" id="main" style="background-color: white;">
+      <div class="panel-heading" id="panel-heading">
+          <div class="pannel-title">
+              <strong>
+                  Issue Book
+              </strong>
+          </div>
+      </div>
+      <div class="panel-body col-sm-12">
+          <div class="form-group mb0 col-sm-12">
+              <label for="bookid" class="control-label required">BookId:</label>
+              <input type="text" placeholder="type 12345 to see magic" id="bookid" name="bookid" class="form-control" formControlName="bookid" (keyup)="onupdate($event)">
+              <span class="text-danger"
+              *ngIf="(formcontrols.bookid.touched || submitted) && formcontrols.bookid.errors?.required">
+              book id is required
+          </span>
+          <span class="text-danger"
+              *ngIf="formcontrols.bookid.touched && formcontrols.bookid.errors?.userNameNotAvailable">
+              book is not available
+          </span>
+          </div>
+          <!-- <div class="form-group mb0 col-sm-12">
+
+                    <label>BookName</label>
+
+            <input name="Book_name" 
+                   placeholder="book Name" class="form-control" type="text"  [(ngModel)]="defaultBookName" [disabled]=true>
+          </div> -->
+         
+            <div class="form-group mb0 col-sm-12">
+            <table class="table table-bordered"
+                   style="border: 1px solid lightgrey;" [hidden]="showBook">
+              <tbody>
+              <tr>
+                <td style="background: beige;">Book_name</td>
+                <td>{{book.book_name   }}</td>
+                <td style="background: beige;">Author</td>
+                <td>{{book.author}}</td>
+              </tr>
+              <tr>
+                <td style="background: beige;">publication</td>
+                <td>{{book.publication}}</td>
+                <td style="background: beige;">Subject</td>
+                <td>{{book.subject}}</td>
+              </tr>
+              <tr>
+                <td style="background: beige;">No of copies available</td>
+                <td>{{book.no_of_copies}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+           <div class="form-group mb0 col-sm-12">
+            <label>Student Id</label>
+            <input name="user_id" 
+                    placeholder="Type User ID. Eg :12345"
+                   class="form-control" type="text" id="stuid" name="studentid" formControlName="stuid" >
+              <span class="text-danger"
+                   *ngIf="(formcontrols.stuid.touched || submitted) && formcontrols.stuid.errors?.required">
+                   Student id is required
+               </span>
+               <span class="text-danger"
+                   *ngIf="formcontrols.stuid.touched && formcontrols.stuid.errors?.userNotAvailable">
+                    please enter correct Student id
+               </span>       
+                   
+              </div>       
+         <div class="from-group row-sm-12">
+        <div class="form-group mb0 col-sm-6">
+            <label>IssueDate:</label>
+            <input type="date" class="form-control" name="issuedate" id="issuedate" formControlName="issuedate">
+            <span class="text-danger"
+              *ngIf="(formcontrols.issuedate.touched || submitted) && formcontrols.issuedate.errors?.required">
+              issuedate  is required
+          </span>
+        </div>
+        <div class="form-group mb0 col-sm-6">
+            <label>ReturnDate:</label>
+            <input type="date" class="form-control" name="returndate" id="returndate" formControlName="returndate">
+            <span class="text-danger"
+              *ngIf="(formcontrols.returndate.touched || submitted) && formcontrols.returndate.errors?.required">
+              returndate  is required
+          </span>
+        </div> 
+         </div>
+        <div class="form-group mb0 col-sm-12">
+        <button type="submit" class="btn btn-danger pmd-ripple-effect pull-right" id="btn">submit</button>
+        </div>
+      </div> 
+      </div>
+      
+  </form>
+</div>

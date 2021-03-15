@@ -1,0 +1,48 @@
+<h3>Issue Book</h3>
+<form (ngSubmit)="createBook()">
+    <!-- row#1 -->
+    <div class="row">
+        <div class="col-2">
+            <label>BookNo</label>
+        </div>
+        <div class="col-4">
+            <input type="text"  [(ngModel)]="book.no" name="no" class="form-control"/>
+        </div>
+    </div>
+
+    <!-- row#2 -->
+    <div class="row">
+        <div class="col-2">
+            <label>BookName</label>
+        </div>
+        <div class="col-4">
+            <input type="text"  [(ngModel)]="book.book_name" name="name" class="form-control"/>
+        </div>
+    </div>
+
+    <!-- row#3 -->
+    <div class="row">
+        <div class="col-2">
+            <label>IssuedDate</label>
+        </div>
+        <div class="col-4">
+            <input type="text" [(ngModel)]="book.issueddate" name="issueddate" class="form-control"/>
+        </div>
+    </div>
+
+    <!-- row#4 -->
+
+    <div class="row">
+        <div class="col-2">
+            <label>ReturnDate</label>
+        </div>
+        <div class="col-4">
+            <input type="text" [(ngModel)]="book.returndate" name="returndate" class="form-control"/>
+        </div>
+    </div>
+    
+
+    
+    <input type="submit" value="Add Book" class="btn btn-success"/>
+</form>
+<span class="text-info">{{message}}</span>
